@@ -35,18 +35,48 @@ body {
 header {
     background: linear-gradient(135deg, var(--cobresal-orange) 0%, #c84306 100%);
     color: var(--text-primary);
-    padding: 24px 20px;
+    padding: 20px 20px;
     text-align: center;
     border-bottom: 4px solid var(--cobresal-green);
     box-shadow: 0 4px 20px rgba(242, 101, 34, 0.25);
 }
 
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
 header h1 {
-    margin: 0 0 14px 0;
+    margin: 0;
     font-size: 2rem;
     font-weight: 800;
     letter-spacing: 0.5px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background-color: rgba(15, 23, 42, 0.85);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    touch-action: manipulation;
+}
+
+.header-map-btn:hover {
+    background-color: var(--input-bg);
+    border-color: var(--cobresal-gold);
 }
 
 .search-container {
@@ -343,7 +373,6 @@ main {
     gap: 6px;
 }
 
-/* Bloque de ubicación GPS */
 .location-box {
     display: flex;
     flex-direction: column;
@@ -397,6 +426,57 @@ main {
     color: #f87171;
 }
 
+/* Tarjeta con mapa del local para Retiro */
+.pickup-map-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding: 10px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+}
+
+.pickup-title {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.map-frame-wrapper {
+    width: 100%;
+    height: 170px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.map-frame-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.open-maps-link {
+    display: block;
+    text-align: center;
+    background-color: #2563eb;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 9px 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.open-maps-link:hover {
+    background-color: #1d4ed8;
+}
+
 .checkout-form button.checkout {
     background-color: var(--cobresal-green);
     color: var(--text-primary);
@@ -413,6 +493,51 @@ main {
 
 .checkout-form button.checkout:hover {
     background-color: var(--cobresal-green-hover);
+}
+
+/* =========================================================
+ *  BOTONES FLOTANTES DE REDES SOCIALES (NO INVASIVOS)
+ *  ========================================================= */
+.social-floating {
+    position: fixed;
+    right: 18px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 950;
+}
+
+.social-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    opacity: 0.92;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+.social-btn.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.social-btn.facebook {
+    background-color: #1877f2;
+}
+
+.social-btn.whatsapp {
+    background-color: #25d366;
 }
 
 .mobile-cart-bar {
@@ -432,6 +557,12 @@ footer p {
     margin: 4px 0;
 }
 
+.footer-map-link {
+    color: var(--cobresal-gold);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
 /* =========================================================
  *  VISTA OPTIMIZADA PARA TELÉFONOS CELULARES
  *  ========================================================= */
@@ -441,19 +572,31 @@ footer p {
     }
 
     header {
-        padding: 16px 14px;
+        padding: 12px 12px;
         position: sticky;
         top: 0;
         z-index: 900;
     }
 
+    .header-top {
+        justify-content: space-between;
+        margin-bottom: 8px;
+        gap: 8px;
+    }
+
     header h1 {
-        font-size: 1.35rem;
-        margin-bottom: 10px;
+        font-size: 1.2rem;
+        text-align: left;
+    }
+
+    .header-map-btn {
+        font-size: 0.78rem;
+        padding: 6px 11px;
+        flex-shrink: 0;
     }
 
     .search-container input {
-        padding: 10px 14px;
+        padding: 9px 14px;
         font-size: 16px;
     }
 
@@ -525,6 +668,23 @@ footer p {
 
     .cart-item {
         padding: 10px 8px;
+    }
+
+    .social-floating {
+        right: 12px;
+        bottom: 76px;
+        gap: 8px;
+    }
+
+    .social-btn {
+        width: 38px;
+        height: 38px;
+        opacity: 0.88;
+    }
+
+    .social-btn svg {
+        width: 19px;
+        height: 19px;
     }
 
     .mobile-cart-bar {
