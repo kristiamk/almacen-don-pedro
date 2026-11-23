@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Almacén Don Pedro - Catálogo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Almacén Don Pedro</h1>
+        <div class="search-container">
+            <input type="search" id="searchInput" placeholder="Buscar entre 157 artículos..." aria-label="Buscar producto">
+        </div>
+    </header>
+
+    <main>
+        <section class="catalog" id="catalog">
+            <!-- Los 157 artículos se cargan automáticamente desde script.js -->
+        </section>
+
+        <section class="cart" id="cartSection">
+            <h2>Carrito de Compras</h2>
+            <div class="cart-items"></div>
+            <div class="cart-total">
+                <h3>Total: $0</h3>
+            </div>
+            <div class="checkout-form">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" required placeholder="Tu nombre completo">
+
+                <label for="address">Dirección:</label>
+                <input type="text" id="address" required placeholder="Calle, número, población o referencia">
+
+                <div class="delivery-options">
+                    <label>
+                        <input type="radio" name="delivery-option" id="delivery" value="delivery" checked>
+                        Delivery
+                    </label>
+                    <label>
+                        <input type="radio" name="delivery-option" id="pickup" value="pickup">
+                        Retiro
+                    </label>
+                </div>
+
+                <!-- Bloque de ubicación GPS visible solo cuando Delivery está seleccionado -->
+                <div class="location-box" id="locationBox">
+                    <button type="button" id="getLocationBtn" class="location-btn">
+                        📍 Obtener mi ubicación actual (GPS)
+                    </button>
+                    <span id="locationStatus" class="location-status">
+                        Opcional: adjunta tu punto exacto en el mapa para el reparto.
+                    </span>
+                </div>
+
+                <button type="button" class="checkout">Finalizar Compra por WhatsApp</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Barra flotante inferior exclusiva para teléfonos celulares -->
+    <div class="mobile-cart-bar" id="mobileCartBar">
+        <div class="mobile-cart-info">
+            <span id="mobileCartCount">0 artículos</span>
+            <strong id="mobileCartTotal">$0</strong>
+        </div>
+        <button type="button" id="goToCartBtn">Ver Carrito</button>
+    </div>
+
+    <footer>
+        <p>* Todas las fotografías publicadas son imágenes referenciales.</p>
+        <p>&copy; 2026 Almacén Don Pedro. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
