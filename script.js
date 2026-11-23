@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const WHATSAPP_NUMBER = '56931000743';
 
+    // Sincronizar botón flotante de WhatsApp con el número configurado
+    const floatingWhatsappBtn = document.getElementById('floatingWhatsappBtn');
+    if (floatingWhatsappBtn) {
+        const greeting = encodeURIComponent('Hola Almacén Don Pedro, tengo una consulta sobre sus productos.');
+        floatingWhatsappBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${greeting}`;
+    }
+
     const products = [
         { id: 1, name: "ACEITE 900 ML", price: 2800, image: "art/im1.jpg" },
         { id: 2, name: "AGUA BIDON 20 LITROS AGUA SODA CHOAPA", price: 3000, image: "art/im2.jpg" },
@@ -174,9 +181,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const goToCartBtn = document.getElementById('goToCartBtn');
     const cartSection = document.getElementById('cartSection');
 
-    // Elementos de geolocalización para Delivery
+    // Elementos de geolocalización para Delivery y mapa para Retiro
     const deliveryRadios = document.querySelectorAll('input[name="delivery-option"]');
     const locationBox = document.getElementById('locationBox');
+    const pickupMapBox = document.getElementById('pickupMapBox');
     const getLocationBtn = document.getElementById('getLocationBtn');
     const locationStatus = document.getElementById('locationStatus');
     let userLocationUrl = '';
@@ -238,13 +246,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderCatalog();
 
-    // Mostrar u ocultar el botón de ubicación según Delivery o Retiro
+    // Mostrar GPS si elige Delivery, o el mapa del local si elige Retiro
     deliveryRadios.forEach(radio => {
         radio.addEventListener('change', (e) => {
             if (e.target.value === 'delivery') {
-                locationBox.style.display = 'flex';
+                if (locationBox) locationBox.style.display = 'flex';
+                if (pickupMapBox) pickupMapBox.style.display = 'none';
             } else {
-                locationBox.style.display = 'none';
+                if (locationBox) locationBox.style.display = 'none';
+                if (pickupMapBox) pickupMapBox.style.display = 'flex';
             }
         });
     });
