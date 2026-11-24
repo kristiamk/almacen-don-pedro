@@ -35,48 +35,36 @@ body {
 header {
     background: linear-gradient(135deg, var(--cobresal-orange) 0%, #c84306 100%);
     color: var(--text-primary);
-    padding: 20px 20px;
+    padding: 18px 20px;
     text-align: center;
     border-bottom: 4px solid var(--cobresal-green);
     box-shadow: 0 4px 20px rgba(242, 101, 34, 0.25);
 }
 
 .header-top {
+    max-width: 520px;
+    margin: 0 auto 14px auto;
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 14px;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.header-map-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    background-color: rgba(15, 23, 42, 0.85);
-    color: var(--text-primary);
+.logo-link {
+    display: block;
+    width: 100%;
     text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 7px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    touch-action: manipulation;
 }
 
-.header-map-btn:hover {
-    background-color: var(--input-bg);
-    border-color: var(--cobresal-gold);
+.site-logo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    background-color: #ffffff;
+    display: block;
+    box-sizing: border-box;
 }
 
 .search-container {
@@ -426,7 +414,6 @@ main {
     color: #f87171;
 }
 
-/* Tarjeta con mapa del local para Retiro */
 .pickup-map-box {
     display: flex;
     flex-direction: column;
@@ -495,9 +482,6 @@ main {
     background-color: var(--cobresal-green-hover);
 }
 
-/* =========================================================
- *  BOTONES FLOTANTES DE REDES SOCIALES (NO INVASIVOS)
- *  ========================================================= */
 .social-floating {
     position: fixed;
     right: 18px;
@@ -572,31 +556,25 @@ footer p {
     }
 
     header {
-        padding: 12px 12px;
-        position: sticky;
-        top: 0;
-        z-index: 900;
+        padding: 14px 12px;
     }
 
     .header-top {
-        justify-content: space-between;
-        margin-bottom: 8px;
-        gap: 8px;
+        margin-bottom: 12px;
     }
 
-    header h1 {
-        font-size: 1.2rem;
-        text-align: left;
+    .site-logo {
+        border-radius: 14px;
     }
 
-    .header-map-btn {
-        font-size: 0.78rem;
-        padding: 6px 11px;
-        flex-shrink: 0;
+    .search-container {
+        position: sticky;
+        top: 8px;
+        z-index: 900;
     }
 
     .search-container input {
-        padding: 9px 14px;
+        padding: 10px 14px;
         font-size: 16px;
     }
 
@@ -659,7 +637,7 @@ footer p {
         padding: 18px 14px;
         box-sizing: border-box;
         position: static;
-        scroll-margin-top: 115px;
+        scroll-margin-top: 20px;
     }
 
     .cart-items {
