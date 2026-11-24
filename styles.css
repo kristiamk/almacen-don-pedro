@@ -41,8 +41,9 @@ header {
     box-shadow: 0 4px 20px rgba(242, 101, 34, 0.25);
 }
 
+/* En computadora: la mitad del ancho de la barra de búsqueda (520px / 2 = 260px) */
 .header-top {
-    max-width: 520px;
+    max-width: 260px;
     margin: 0 auto 14px auto;
     display: flex;
     justify-content: center;
@@ -559,7 +560,9 @@ footer p {
         padding: 14px 12px;
     }
 
+    /* En celulares mantiene el tamaño ancho completo igual que la barra de búsqueda */
     .header-top {
+        max-width: 520px;
         margin-bottom: 12px;
     }
 
